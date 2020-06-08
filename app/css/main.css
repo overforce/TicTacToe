@@ -1,0 +1,114 @@
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  position: relative;
+  font-size: 16px;
+  line-height: 1.25;
+  min-width: 320px;
+  margin: 0;
+  font-family: 'Arial'; }
+
+button {
+  outline: none;
+  cursor: pointer;
+  border: 0;
+  background: 0; }
+
+ul {
+  margin: 0;
+  padding: 0; }
+
+li {
+  list-style: none; }
+
+a {
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap; }
+
+body {
+  height: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end; }
+
+.block {
+  border: 2px solid;
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px; }
+
+.el {
+  border: 1px solid;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: background .2s;
+  transition: background .2s; }
+
+.cross:after {
+  display: block;
+  content: '+';
+  font-size: 120px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  color: darkblue; }
+
+.zero:after {
+  display: block;
+  content: 'O';
+  font-size: 100px;
+  color: darkred; }
+
+.turn {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  font-size: 40px;
+  visibility: hidden; }
+
+.turn_active {
+  visibility: visible; }
+
+.turn_cross {
+  color: darkblue; }
+
+.turn_zero {
+  color: darkred; }
+
+.winner {
+  font-size: 35px; }
+
+.reset {
+  font-size: 40px;
+  color: rgba(0, 0, 0, 0.6);
+  padding: 0px 5px;
+  cursor: pointer;
+  position: absolute;
+  top: 13px;
+  right: 30px;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transition: color .2s, -webkit-transform .2s;
+  transition: color .2s, -webkit-transform .2s;
+  transition: color .2s, transform .2s;
+  transition: color .2s, transform .2s, -webkit-transform .2s; }
+  .reset:hover {
+    color: black;
+    -webkit-transform: rotate(90deg) scale(1.1);
+    transform: rotate(90deg) scale(1.1); }
