@@ -1,5 +1,6 @@
 $(document).ready(() => {
 
+	var elsArr = []
 
 	$('.el').click(function() {
 
@@ -21,12 +22,12 @@ $(document).ready(() => {
 					$(`.el:nth-child(${a})`).hasClass(`${winner}`) &&
 					$(`.el:nth-child(${b})`).hasClass(`${winner}`) &&
 					$(`.el:nth-child(${c})`).hasClass(`${winner}`)
-				) $('.turn').html(congratulations).addClass('winner').css({'color' : `${color}`})
+				) $('.turn').html(congratulations).addClass('winner').css({'color' : `${color}`, 'text-shadow' : `0 0 5px ${color}`})
 
 			}
 
-			winner('cross', 'Победа Крестиков', 'darkblue')
-			winner('zero', 'Победа Ноликов', 'darkred')
+			winner('cross', 'Победа Крестиков', '#15FFFF')
+			winner('zero', 'Победа Ноликов', '#FF1EB4')
 
 		}
 
@@ -41,7 +42,7 @@ $(document).ready(() => {
 			$('.el:nth-child(7)').hasClass('el_active') &&
 			$('.el:nth-child(8)').hasClass('el_active') &&
 			$('.el:nth-child(9)').hasClass('el_active')
-		) $('.turn').html('Ничья').css({'color' : 'black'})
+		) $('.turn').html('Ничья').css({'color' : 'white', 'text-shadow' : '0 0 5px #ffffff'})
 
 		check(1,2,3)
 		check(4,5,6)
@@ -54,23 +55,99 @@ $(document).ready(() => {
 		check(1,5,9)
 		check(3,5,7)
 
+		if($('.mode_pc').hasClass('mode_active')){
+
+			if($('.turn_zero').hasClass('turn_active')){
+
+				if($('.el:nth-child(1)').hasClass('cross') && $('.el:nth-child(3)').hasClass('cross') && !$('.el:nth-child(2)').hasClass('el_active')){
+					$('.el:nth-child(2)').click()
+				}else if($('.el:nth-child(1)').hasClass('cross') && $('.el:nth-child(7)').hasClass('cross') && !$('.el:nth-child(4)').hasClass('el_active')){
+					$('.el:nth-child(4)').click()
+				}else if($('.el:nth-child(1)').hasClass('cross') && $('.el:nth-child(9)').hasClass('cross') && !$('.el:nth-child(5)').hasClass('el_active')){
+					$('.el:nth-child(5)').click()
+				}else if($('.el:nth-child(1)').hasClass('cross') && $('.el:nth-child(5)').hasClass('cross') && !$('.el:nth-child(9)').hasClass('el_active')){
+					$('.el:nth-child(9)').click()
+				}else if($('.el:nth-child(1)').hasClass('cross') && $('.el:nth-child(2)').hasClass('cross') && !$('.el:nth-child(3)').hasClass('el_active')){
+					$('.el:nth-child(3)').click()
+				}else if($('.el:nth-child(1)').hasClass('cross') && $('.el:nth-child(4)').hasClass('cross') && !$('.el:nth-child(7)').hasClass('el_active')){
+					$('.el:nth-child(7)').click()
+				}else if($('.el:nth-child(2)').hasClass('cross') && $('.el:nth-child(3)').hasClass('cross') && !$('.el:nth-child(1)').hasClass('el_active')){
+					$('.el:nth-child(1)').click()
+				}else if($('.el:nth-child(2)').hasClass('cross') && $('.el:nth-child(5)').hasClass('cross') && !$('.el:nth-child(8)').hasClass('el_active')){
+					$('.el:nth-child(8)').click()
+				}else if($('.el:nth-child(2)').hasClass('cross') && $('.el:nth-child(8)').hasClass('cross') && !$('.el:nth-child(5)').hasClass('el_active')){
+					$('.el:nth-child(5)').click()
+				}else if($('.el:nth-child(3)').hasClass('cross') && $('.el:nth-child(6)').hasClass('cross') && !$('.el:nth-child(9)').hasClass('el_active')){
+					$('.el:nth-child(9)').click()
+				}else if($('.el:nth-child(3)').hasClass('cross') && $('.el:nth-child(9)').hasClass('cross') && !$('.el:nth-child(6)').hasClass('el_active')){
+					$('.el:nth-child(6)').click()
+				}else if($('.el:nth-child(3)').hasClass('cross') && $('.el:nth-child(7)').hasClass('cross') && !$('.el:nth-child(5)').hasClass('el_active')){
+					$('.el:nth-child(5)').click()
+				}else if($('.el:nth-child(3)').hasClass('cross') && $('.el:nth-child(5)').hasClass('cross') && !$('.el:nth-child(7)').hasClass('el_active')){
+					$('.el:nth-child(7)').click()
+				}else if($('.el:nth-child(4)').hasClass('cross') && $('.el:nth-child(7)').hasClass('cross') && !$('.el:nth-child(1)').hasClass('el_active')){
+					$('.el:nth-child(1)').click()
+				}else if($('.el:nth-child(4)').hasClass('cross') && $('.el:nth-child(5)').hasClass('cross') && !$('.el:nth-child(6)').hasClass('el_active')){
+					$('.el:nth-child(6)').click()
+				}else if($('.el:nth-child(4)').hasClass('cross') && $('.el:nth-child(6)').hasClass('cross') && !$('.el:nth-child(5)').hasClass('el_active')){
+					$('.el:nth-child(5)').click()
+				}else if($('.el:nth-child(6)').hasClass('cross') && $('.el:nth-child(5)').hasClass('cross') && !$('.el:nth-child(4)').hasClass('el_active')){
+					$('.el:nth-child(4)').click()
+				}else if($('.el:nth-child(6)').hasClass('cross') && $('.el:nth-child(9)').hasClass('cross') && !$('.el:nth-child(3)').hasClass('el_active')){
+					$('.el:nth-child(3)').click()
+				}else if($('.el:nth-child(7)').hasClass('cross') && $('.el:nth-child(5)').hasClass('cross') && !$('.el:nth-child(3)').hasClass('el_active')){
+					$('.el:nth-child(3)').click()
+				}else if($('.el:nth-child(7)').hasClass('cross') && $('.el:nth-child(8)').hasClass('cross') && !$('.el:nth-child(9)').hasClass('el_active')){
+					$('.el:nth-child(9)').click()
+				}else if($('.el:nth-child(7)').hasClass('cross') && $('.el:nth-child(9)').hasClass('cross') && !$('.el:nth-child(8)').hasClass('el_active')){
+					$('.el:nth-child(8)').click()
+				}else if($('.el:nth-child(8)').hasClass('cross') && $('.el:nth-child(9)').hasClass('cross') && !$('.el:nth-child(7)').hasClass('el_active')){
+					$('.el:nth-child(7)').click()
+				}else if($('.el:nth-child(8)').hasClass('cross') && $('.el:nth-child(5)').hasClass('cross') && !$('.el:nth-child(2)').hasClass('el_active')){
+					$('.el:nth-child(2)').click()
+				}else{
+
+					elsArr = []
+
+					$('.el').each(function(){
+						if(!$(this).hasClass('el_active')){
+							elsArr.push($(this))
+						}
+					})
+
+					rnd = Math.floor(Math.random()*elsArr.length)
+
+					if(elsArr[rnd] != undefined){
+						elsArr[rnd].click()
+					}
+
+
+				}
+
+
+
+			}
+
+		}
 
 	})
 
 	$('.reset').click(function(){
 
 		$('.el').removeClass().addClass('el')
-		$('.turn_cross').removeClass('winner').addClass('turn_active').html('Ход Крестиков').css({'color' : 'darkblue'})
-		$('.turn_zero').removeClass('winner').removeClass('turn_active').html('Ход Ноликов').css({'color' : 'darkred'})
+		$('.turn_cross').removeClass('winner').addClass('turn_active').html('Ход Крестиков').css({'color' : '#15FFFF','text-shadow' : `0 0 5px #15FFFF`})
+		$('.turn_zero').removeClass('winner').removeClass('turn_active').html('Ход Ноликов').css({'color' : '#FF1EB4','text-shadow' : `0 0 5px #FF1EB4`})
 
 
 	})
 
+	$('.mode').click(function(){
+		$('.reset').click()
+		$('.mode').removeClass('mode_active')
+		$(this).addClass('mode_active')
+	})
+
+
+
 
 });
-
-
-$(window).resize(() => {
-
-
-})
