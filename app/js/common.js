@@ -6,28 +6,36 @@ $(document).ready(() => {
 
 		if(!$(this).hasClass('el_active') && !$('.turn').hasClass('winner')){
 
-			if($('.turn_active').hasClass('turn_cross')) $(this).addClass('cross')
-			if($('.turn_active').hasClass('turn_zero')) $(this).addClass('zero')
-			$('.turn').toggleClass('turn_active')
+
+
+			if($('.turn').hasClass('turn_cross')) $(this).addClass('cross')
+			if($('.turn').hasClass('turn_zero')) $(this).addClass('zero')
+
+			$('.turn').toggleClass('turn_cross')
+			$('.turn').toggleClass('turn_zero')
+
+			$(this).addClass('el_active')
+
 
 		}
 
-		$(this).addClass('el_active')
 
 		function check(a,b,c){
 
-			function winner(winner,congratulations){
+			function winner(winner){
 
 				if(
 					$(`.el:nth-child(${a})`).hasClass(`${winner}`) &&
 					$(`.el:nth-child(${b})`).hasClass(`${winner}`) &&
 					$(`.el:nth-child(${c})`).hasClass(`${winner}`)
-				) $('.turn').html(congratulations).addClass('winner')
+				) {
+					$('.turn').addClass(`win_${winner}`).addClass('winner')
+					}
 
 			}
 
-			winner('cross', 'Победа Крестиков')
-			winner('zero', 'Победа Ноликов')
+			winner('cross')
+			winner('zero')
 
 		}
 
@@ -42,7 +50,7 @@ $(document).ready(() => {
 			$('.el:nth-child(7)').hasClass('el_active') &&
 			$('.el:nth-child(8)').hasClass('el_active') &&
 			$('.el:nth-child(9)').hasClass('el_active')
-		) $('.turn').html('Ничья')
+		) $('.turn').addClass('draw')
 
 		check(1,2,3)
 		check(4,5,6)
@@ -57,7 +65,7 @@ $(document).ready(() => {
 
 		if($('.mode_pc').hasClass('mode_active')){
 
-			if($('.turn_zero').hasClass('turn_active')){
+			if(!$('.turn').hasClass('turn_cross')){
 
 				if($('.el:nth-child(1)').hasClass('cross') && $('.el:nth-child(3)').hasClass('cross') && !$('.el:nth-child(2)').hasClass('el_active')){
 					$('.el:nth-child(2)').click()
@@ -135,8 +143,7 @@ $(document).ready(() => {
 	$('.reset').click(function(){
 
 		$('.el').removeClass().addClass('el')
-		$('.turn_cross').removeClass('winner').addClass('turn_active').html('Ход Крестиков')
-		$('.turn_zero').removeClass('winner').removeClass('turn_active').html('Ход Ноликов')
+		$('.turn').removeClass('turn_zero winner win_zero win_cross draw').addClass('turn_cross')
 
 
 	})

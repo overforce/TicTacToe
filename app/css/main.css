@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
@@ -44,7 +45,7 @@ body {
 
 .block {
   position: relative;
-  border: 2px solid;
+  border: 1px solid;
   display: grid;
   grid-template-columns: 100px 100px 100px;
   grid-template-rows: 100px 100px 100px; }
@@ -61,7 +62,8 @@ body {
   -ms-flex-align: center;
   align-items: center;
   -webkit-transition: background .2s;
-  transition: background .2s; }
+  transition: background .2s;
+  border: 1px solid #c4c4c4; }
 
 .cross:after {
   font-family: 'arial';
@@ -81,19 +83,28 @@ body {
   position: absolute;
   top: 425px;
   font-size: 20px;
-  visibility: hidden;
   text-transform: uppercase; }
 
-.turn_active {
-  visibility: visible; }
-
-.turn_cross {
+.turn_cross:after, .turn_zero:after {
+  display: block;
   color: #111111; }
 
-.turn_zero {
-  color: #111111; }
+.turn_cross:after {
+  content: 'Ход Крестиков'; }
 
-.winner {
+.turn_zero:after {
+  content: 'Ход Ноликов'; }
+
+.win_cross:after {
+  content: 'Победа Крестиков'; }
+
+.win_zero:after {
+  content: 'Победа Ноликов'; }
+
+.draw:after {
+  content: 'Ничья'; }
+
+.win_cross, .win_zero, .draw {
   font-size: 25px; }
 
 .reset {
@@ -116,13 +127,24 @@ body {
 
 .mode {
   cursor: pointer;
-  font-size: 24px;
+  font-size: 22px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  -webkit-transition: text-shadow .2s, color .2s;
-  transition: text-shadow .2s, color .2s; }
+  -webkit-transition: text-shadow .2s, color .2s, -webkit-transform .2s;
+  transition: text-shadow .2s, color .2s, -webkit-transform .2s;
+  transition: transform .2s, text-shadow .2s, color .2s;
+  transition: transform .2s, text-shadow .2s, color .2s, -webkit-transform .2s;
+  color: #333333;
+  text-transform: uppercase; }
+  .mode_pc {
+    margin-bottom: 5px; }
+
+.mode_active {
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+  color: #000000; }
 
 body {
   background-color: #101010; }
@@ -140,13 +162,25 @@ body {
   color: #ff51c5;
   text-shadow: 0 0 5px #FF1EB4; }
 
-.turn_cross {
-  color: #15FFFF !important;
-  text-shadow: 0 0 5px #15FFFF !important; }
+.turn_cross:after {
+  color: #15FFFF;
+  text-shadow: 0 0 5px #15FFFF; }
 
-.turn_zero {
-  color: #FF1EB4 !important;
-  text-shadow: 0 0 5px #FF1EB4 !important; }
+.turn_zero:after {
+  color: #FF1EB4;
+  text-shadow: 0 0 5px #FF1EB4; }
+
+.win_cross:after {
+  color: #15FFFF;
+  text-shadow: 0 0 5px #15FFFF; }
+
+.win_zero:after {
+  color: #FF1EB4;
+  text-shadow: 0 0 5px #FF1EB4; }
+
+.draw:after {
+  color: #ffffff;
+  text-shadow: 0 0 5px #ffffff; }
 
 .reset {
   color: rgba(255, 255, 255, 0.8);

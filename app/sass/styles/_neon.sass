@@ -5,22 +5,33 @@ body
 	border: 1px solid lighten(#15FFFF, 50)
 	box-shadow: 0 0 6px #15FFFF
 
-.cross
-	&:after
+.cross:after
 		color: lighten(#15FFFF, 20)
 		text-shadow: 0 0 5px #15FFFF
 
-.zero
-	&:after
+.zero:after
 		color: lighten(#FF1EB4, 10)
 		text-shadow: 0 0 5px #FF1EB4
-.turn_cross
-	color: #15FFFF !important
-	text-shadow: 0 0 5px #15FFFF !important
 
-.turn_zero
-	color: #FF1EB4 !important
-	text-shadow: 0 0 5px #FF1EB4 !important
+.turn_cross:after
+	color: #15FFFF
+	text-shadow: 0 0 5px #15FFFF
+
+.turn_zero:after
+	color: #FF1EB4
+	text-shadow: 0 0 5px #FF1EB4
+
+.win_cross:after
+	color: #15FFFF
+	text-shadow: 0 0 5px #15FFFF
+
+.win_zero:after
+	color: #FF1EB4
+	text-shadow: 0 0 5px #FF1EB4
+
+.draw:after
+	color: #ffffff
+	text-shadow: 0 0 5px #ffffff
 
 .reset
 	color: rgba(#ffffff, .8)

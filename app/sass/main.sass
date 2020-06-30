@@ -9,7 +9,7 @@ body
 
 .block
 	position: relative
-	border: 2px solid
+	border: 1px solid
 	display: grid
 	grid-template-columns: 100px 100px 100px
 	grid-template-rows: 100px 100px 100px
@@ -20,6 +20,7 @@ body
 	justify-content: center
 	align-items: center
 	transition: background .2s
+	border: 1px solid lighten(#111111, 70)
 
 .cross
 	&:after
@@ -40,19 +41,31 @@ body
 	position: absolute
 	top: 425px
 	font-size: 20px
-	visibility: hidden
 	text-transform: uppercase
 
+.turn_cross,.turn_zero
+	&:after
+		display: block
+		color: #111111
 
-.turn_active
-	visibility: visible
+.turn_cross:after
+	content: 'Ход Крестиков'
 
-.turn_cross
-	color: #111111
-.turn_zero
-	color: #111111
-.winner
+.turn_zero:after
+	content: 'Ход Ноликов'
+
+.win_cross:after
+	content: 'Победа Крестиков'
+
+.win_zero:after
+	content: 'Победа Ноликов'
+
+.draw:after
+	content: 'Ничья'
+
+.win_cross,.win_zero,.draw
 	font-size: 25px
+
 
 .reset
 	font-size: 40px
@@ -70,10 +83,17 @@ body
 	top: 20px
 .mode
 	cursor: pointer
-	font-size: 24px
+	font-size: 22px
 	user-select: none
-	transition: text-shadow .2s, color .2s
+	transition: transform .2s, text-shadow .2s, color .2s
+	color: #333333
+	text-transform: uppercase
+	&_pc
+		margin-bottom: 5px
 
 .mode_active
+	transform: scale(1.3)
+	color: #000000
+
 
 @import styles/_neon
