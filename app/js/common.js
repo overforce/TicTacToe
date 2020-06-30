@@ -42,7 +42,7 @@ $(document).ready(() => {
 			$('.el:nth-child(7)').hasClass('el_active') &&
 			$('.el:nth-child(8)').hasClass('el_active') &&
 			$('.el:nth-child(9)').hasClass('el_active')
-		) $('.turn').html('Ничья').css({'color' : 'white', 'text-shadow' : '0 0 5px #ffffff'})
+		) $('.turn').html('Ничья')
 
 		check(1,2,3)
 		check(4,5,6)
@@ -135,8 +135,8 @@ $(document).ready(() => {
 	$('.reset').click(function(){
 
 		$('.el').removeClass().addClass('el')
-		$('.turn_cross').removeClass('winner').addClass('turn_active').html('Ход Крестиков').css({'color' : '#15FFFF','text-shadow' : `0 0 5px #15FFFF`})
-		$('.turn_zero').removeClass('winner').removeClass('turn_active').html('Ход Ноликов').css({'color' : '#FF1EB4','text-shadow' : `0 0 5px #FF1EB4`})
+		$('.turn_cross').removeClass('winner').addClass('turn_active').html('Ход Крестиков')
+		$('.turn_zero').removeClass('winner').removeClass('turn_active').html('Ход Ноликов')
 
 
 	})
