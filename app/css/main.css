@@ -40,8 +40,7 @@ body {
   -ms-flex-align: end;
   align-items: flex-end;
   font-family: 'roboto';
-  font-weight: 300;
-  background-color: #101010; }
+  font-weight: 300; }
 
 .block {
   position: relative;
@@ -51,9 +50,6 @@ body {
   grid-template-rows: 100px 100px 100px; }
 
 .el {
-  border: 1px solid white;
-  -webkit-box-shadow: 0 0 6px #15FFFF;
-  box-shadow: 0 0 6px #15FFFF;
   cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -73,17 +69,13 @@ body {
   content: '+';
   font-size: 100px;
   -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-  color: #7bffff;
-  text-shadow: 0 0 5px #15FFFF; }
+  transform: rotate(45deg); }
 
 .zero:after {
   font-family: 'arial';
   display: block;
   content: 'O';
-  font-size: 70px;
-  color: #ff51c5;
-  text-shadow: 0 0 5px #FF1EB4; }
+  font-size: 70px; }
 
 .turn {
   position: absolute;
@@ -96,20 +88,18 @@ body {
   visibility: visible; }
 
 .turn_cross {
-  color: #15FFFF;
-  text-shadow: 0 0 5px #15FFFF; }
+  color: #111111 !important;
+  text-shadow: none !important; }
 
 .turn_zero {
-  color: #FF1EB4;
-  text-shadow: 0 0 5px #FF1EB4; }
+  color: #111111 !important;
+  text-shadow: none !important; }
 
 .winner {
   font-size: 25px; }
 
 .reset {
   font-size: 40px;
-  color: rgba(255, 255, 255, 0.8);
-  text-shadow: 0 0 4px #ffffff;
   padding: 0px 5px;
   cursor: pointer;
   position: absolute;
@@ -121,9 +111,6 @@ body {
   transition: text-shadow .2s,color .2s, -webkit-transform .2s;
   transition: text-shadow .2s,color .2s, transform .2s;
   transition: text-shadow .2s,color .2s, transform .2s,-webkit-transform .2s; }
-  .reset:hover {
-    color: #ffffff;
-    text-shadow: 0 0 6px #ffffff; }
 
 .mode-select {
   position: absolute;
@@ -132,13 +119,46 @@ body {
 .mode {
   cursor: pointer;
   font-size: 24px;
-  color: rgba(255, 255, 255, 0.7);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   -webkit-transition: text-shadow .2s, color .2s;
   transition: text-shadow .2s, color .2s; }
+
+body {
+  background-color: #101010; }
+
+.el {
+  border: 1px solid white;
+  -webkit-box-shadow: 0 0 6px #15FFFF;
+  box-shadow: 0 0 6px #15FFFF; }
+
+.cross:after {
+  color: #7bffff;
+  text-shadow: 0 0 5px #15FFFF; }
+
+.zero:after {
+  color: #ff51c5;
+  text-shadow: 0 0 5px #FF1EB4; }
+
+.turn_cross {
+  color: #15FFFF !important;
+  text-shadow: 0 0 5px #15FFFF !important; }
+
+.turn_zero {
+  color: #FF1EB4 !important;
+  text-shadow: 0 0 5px #FF1EB4 !important; }
+
+.reset {
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 0 4px #ffffff; }
+  .reset:hover {
+    color: #ffffff;
+    text-shadow: 0 0 6px #ffffff; }
+
+.mode {
+  color: rgba(255, 255, 255, 0.7); }
 
 .mode_active {
   color: #ffffff;

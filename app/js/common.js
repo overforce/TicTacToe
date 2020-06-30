@@ -16,18 +16,18 @@ $(document).ready(() => {
 
 		function check(a,b,c){
 
-			function winner(winner,congratulations,color){
+			function winner(winner,congratulations){
 
 				if(
 					$(`.el:nth-child(${a})`).hasClass(`${winner}`) &&
 					$(`.el:nth-child(${b})`).hasClass(`${winner}`) &&
 					$(`.el:nth-child(${c})`).hasClass(`${winner}`)
-				) $('.turn').html(congratulations).addClass('winner').css({'color' : `${color}`, 'text-shadow' : `0 0 5px ${color}`})
+				) $('.turn').html(congratulations).addClass('winner')
 
 			}
 
-			winner('cross', 'Победа Крестиков', '#15FFFF')
-			winner('zero', 'Победа Ноликов', '#FF1EB4')
+			winner('cross', 'Победа Крестиков')
+			winner('zero', 'Победа Ноликов')
 
 		}
 
